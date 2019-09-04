@@ -1,4 +1,6 @@
-#INSTALLATION
+# S'nce Test
+
+## INSTALLATION
 
 run docker-compose build
 run docker-compose up
