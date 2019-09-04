@@ -1,0 +1,27 @@
+<html>
+<body>
+<h3>PRODUCT LIST</h3>
+<br />
+<form action="/product/list">
+    <label for="tag_search">Search by tag: </label>
+    <input type="text" name="tag_search" id="tag_search" value="{{ tag_search }}" />
+    <input type="submit" value="Search">
+</form>
+{% if products %}
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Tags</th>
+            <th>Creation date</th>
+            <th>Edit</th>
+        </tr>
+    {%  for product in products %}
+        <tr><td>{{ product.name }} </td><td> {{ product.description }} </td><td>TAGS</td><td> {{ product.createdAt }}</td><td><a href="/product/{{ product.id }}/edit">Edit</a></td></tr>
+    {% endfor %}
+    </table>
+{% endif %}
+<br />
+<a href="/product/create">CREATE NEW PRODUCT</a>
+</body>
+</html>

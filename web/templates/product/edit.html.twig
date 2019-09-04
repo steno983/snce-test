@@ -1,0 +1,26 @@
+<html>
+<body>
+<a href="/product/list">List</a><br />
+{%  if not product %}
+    <p>Product doesn't exist!</p>
+{% else %}
+    {%  if saved is defined %}
+        {% if saved %}
+            <h5>PRODUCT SAVED</h5>
+        {%  else %}
+            <h5>AN ERROR HAS OCCURED</h5>
+        {%  endif %}
+    {% endif %}
+    <br />
+    <form method="post" action="/product/{{ product.id }}/edit">
+        <label for="product_name">Name:</label><br />
+        <input type="text" name="product_name" id="product_name" value="{{ product.name }}" /> <br /><br />
+        <label for="product_description">Description:</label><br />
+        <textarea name="product_description" id="product_description">{{ product.description }}</textarea> <br /><br />
+        <label for="tags">Tags (comma separated):</label><br />
+        <input type="text" name="tags" id="tags" value="{{ tags }}"><br /><br />
+        <input type="submit" value="Save" />
+    </form>
+{% endif %}
+</body>
+</html>
